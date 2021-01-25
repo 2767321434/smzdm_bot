@@ -3,7 +3,7 @@
 使用github actions 定时执行
 @author : stark
 """
-import requests,os
+import requests,os,time
 from sys import argv
 
 import config
@@ -40,7 +40,7 @@ class SMZDM_Bot(object):
         """
         签到函数
         """
-        url = 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin?_='+int(round(time.time() * 1000))
+        url = 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin?_='+str(int(round(time.time() * 1000)))
         msg = self.session.get(url)
         if self.__json_check(msg):
             return msg.json()
