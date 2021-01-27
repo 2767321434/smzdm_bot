@@ -40,7 +40,8 @@ class SMZDM_Bot(object):
         """
         签到函数
         """
-        url = 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin?_='+str(int(round(time.time() * 1000)))
+        url = 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin?callback=jQuery112409568846254764496_'+str(int(round(time.time() * 1000)))+'&_='+str(int(round(time.time() * 1000)))
+        
         msg = self.session.get(url)
         if self.__json_check(msg):
             return msg.json()
